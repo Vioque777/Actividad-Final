@@ -1,1 +1,41 @@
-<p>busqueda-personajes works!</p>
+<form [formGroup]="formBusqueda" class="form-inline">
+    <div class="row">
+        <div class="col-2">Busca tu Localización:</div>
+        <div class="col-4">  
+            <input type="text" [(ngModel)]="buscarLocalizaciones.name" class="form-control" placeholder="Planeta" formControlName="nombrePlaneta">
+            <!-- <div class="input-group-append" *ngIf="f['nombrePlaneta'].errors">
+                    <p *ngIf="f['nombrePlaneta'].errors['required']" class="error-validate red"> *Obligatorio</p>
+            </div> -->
+        </div>
+        <div class="col-4">
+            <select type="text" [(ngModel)]="buscarLocalizaciones.type" class="form-control" formControlName="tipo">
+                <option *ngFor="let localizacion of localizaciones" [value]="localizacion.type">{{localizacion.type}}</option>
+            </select>
+            <!-- <div class="input-group-append" *ngIf="f['comentarios'].errors">
+                <p *ngIf="f['tipo'].errors['required']" class="error-validate red"> *Obligatorio</p>
+                <p *ngIf="f['comentarios'].errors['minlength']" class="error-validate red"> *Debe contener mínimo 10 caracteres</p>
+            </div> -->
+        </div>
+        <div class="col-2">
+            <!-- <button type="button" class="btn btn-primary">Buscar</button> -->
+            <button  type="button" class="btn btn-primary" (click)="fitrarLocalizacion();">Buscar</button>
+            <button type="button" class="btn btn-primary" (click)="limpiar();">Limpiar</button>
+        </div>
+    </div> 
+</form>
+
+
+<div class="col-8">
+    <table class="table table-striped">
+        <thead>
+                <th>ID</th> <th>Planeta</th> <th>Tipo</th> <th>Dimensión</th> 
+        </thead>
+        <tbody>
+            <tr *ngFor="let personaje of busqueda"> 
+                <td>{{personaje.id}}</td> <td>{{personaje.name}} </td> <td>{{personaje.type}}</td>
+                <td>{{personaje.dimension}}</td> 
+                
+            </tr>
+        </tbody>
+    </table>
+</div>

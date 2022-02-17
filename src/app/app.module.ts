@@ -7,6 +7,17 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PersonajesComponent } from './personajes/personajes.component';
 import { BusquedaPersonajesComponent } from './busqueda-personajes/busqueda-personajes.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { PersonajesService } from './servicio/personajes.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+const routes: Routes = [
+  {path:'',component:PersonajesComponent},
+  {path:'seccion1',component:PersonajesComponent},
+  {path:'seccion2',component:BusquedaPersonajesComponent},
+  {path:'**',component:PersonajesComponent}
+]
 
 @NgModule({
   declarations: [
@@ -18,9 +29,16 @@ import { BusquedaPersonajesComponent } from './busqueda-personajes/busqueda-pers
     BusquedaPersonajesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
-  providers: [],
+  providers: [
+    PersonajesService
+  ],
   bootstrap: [PrincipalComponent]
 })
 export class AppModule { }
