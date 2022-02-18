@@ -8,8 +8,8 @@
             </div> -->
         </div>
         <div class="col-4">
-            <select type="text" [(ngModel)]="buscarLocalizaciones.type" class="form-control" formControlName="tipo">
-                <option *ngFor="let localizacion of localizaciones" [value]="localizacion.type">{{localizacion.type}}</option>
+            <select type="text" [(ngModel)]="buscarLocalizaciones.type" class="form-control form-control-lg" formControlName="tipo">
+                <option *ngFor="let localizacion of localizaciones;" [value]="localizacion">{{localizacion}}</option>
             </select>
             <!-- <div class="input-group-append" *ngIf="f['comentarios'].errors">
                 <p *ngIf="f['tipo'].errors['required']" class="error-validate red"> *Obligatorio</p>

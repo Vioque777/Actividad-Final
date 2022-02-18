@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonajesService } from './servicio/personajes.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 
 const routes: Routes = [
   {path:'',component:PersonajesComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     PersonajesComponent,
-    BusquedaPersonajesComponent
+    BusquedaPersonajesComponent,
+    BienvenidaComponent
   ],
   imports: [
     BrowserModule,

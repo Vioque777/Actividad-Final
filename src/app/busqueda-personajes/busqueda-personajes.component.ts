@@ -16,7 +16,7 @@ export class BusquedaPersonajesComponent implements OnInit {
 
   busqueda: any;
   buscarLocalizaciones: any = {name: '', type: ''};
-  localizaciones: any;
+  localizaciones: any[] = [];
 
   constructor(private perSevice: PersonajesService) { 
     this.buscar();
@@ -33,8 +33,18 @@ export class BusquedaPersonajesComponent implements OnInit {
   llenarLocalizacion(){
     this.perSevice.busquedas().subscribe({
       next: (r) => {
-        this.localizaciones = r.results;
+        const loca: any = r.results.map((tipo: any) => {    
+          return tipo.type;
+        });
+        
+        // this.localizaciones = 
+        loca.forEach( (elemento: any) => {
+          if (!this.localizaciones.includes(elemento)) {
+            this.localizaciones.push(elemento);
+          }
+        })
         console.log(this.localizaciones);
+        
       },
       error: (e) => console.log(JSON.stringify(e))
     });
