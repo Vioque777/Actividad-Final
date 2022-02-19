@@ -1,19 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+
+<div class="row">
+  <nav class="navbar navbar-expand-lg navbar-light col-11" style="background-color: rgb(209, 224, 251);">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Proyecto Final</a>
+      <a class="navbar-brand" style="font-size:x-large; font-weight: bolder;" href="#">{{'header.title'| translate}}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" [routerLink]="['/seccion1']" aria-current="page" href="#">Personajes</a>
-          <a class="nav-link" [routerLink]="['/seccion2']" href="#">Localizaciones</a>
-          
-        </div>
-      </div>
-    </div>
-    
+      <div class="collapse navbar-collapse clear-fix" id="navbarNavAltMarkup">
+        <ul class="navbar-nav" style="font-size:larger;">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/seccion1']" routerLinkActive="active" href="#">{{'header.character'| translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/seccion2']" routerLinkActive="active" href="#">{{'header.location'| translate}}</a> 
+          </li>
+             
+        </ul>       
+      </div>   
+    </div>  
   </nav>
+  <div class="col-1" style="font-size:larger; background-color: rgb(190, 190, 250);">
+    <a class="nav-link text-dark" (click)="changeLangugeToSpanish();">ESP</a> 
+              
+    <a class="nav-link text-dark" (click)="changeLangugeToEnglish();">ING</a>
+  </div>
+</div>
+
   <div>
     <app-bienvenida></app-bienvenida>
   </div>

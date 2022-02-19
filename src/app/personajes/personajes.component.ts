@@ -9,6 +9,7 @@ import { PersonajesService } from '../servicio/personajes.service';
 export class PersonajesComponent implements OnInit {
 
   personajes: any;
+  pagePersonajes: number = 1;
 
   constructor(private perSevice: PersonajesService) {
       this.listarPersonaje();

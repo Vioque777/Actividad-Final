@@ -10,13 +10,14 @@ import { PersonajesService } from '../servicio/personajes.service';
 export class BusquedaPersonajesComponent implements OnInit {
 
   formBusqueda:FormGroup = new FormGroup({
-    nombrePlaneta: new FormControl('', [Validators.required]),
+    nombrePlaneta: new FormControl('', [Validators.minLength(5)]),
     tipo: new FormControl('')
   });
 
   busqueda: any;
   buscarLocalizaciones: any = {name: '', type: ''};
   localizaciones: any[] = [];
+  pageLocalizaciones: number = 1;
 
   constructor(private perSevice: PersonajesService) { 
     this.buscar();
@@ -66,6 +67,7 @@ export class BusquedaPersonajesComponent implements OnInit {
       tipo: new FormControl('')
 
     });
+    this.buscar();
   }
 
   buscar(): void {

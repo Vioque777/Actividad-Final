@@ -1,41 +1,48 @@
-<form [formGroup]="formBusqueda" class="form-inline">
+<form [formGroup]="formBusqueda" class="form-inline m-auto p-5">
     <div class="row">
-        <div class="col-2">Busca tu Localización:</div>
-        <div class="col-4">  
-            <input type="text" [(ngModel)]="buscarLocalizaciones.name" class="form-control" placeholder="Planeta" formControlName="nombrePlaneta">
-            <!-- <div class="input-group-append" *ngIf="f['nombrePlaneta'].errors">
-                    <p *ngIf="f['nombrePlaneta'].errors['required']" class="error-validate red"> *Obligatorio</p>
-            </div> -->
+        <div class="col-2"><h4 class="mt-4">{{'locations.titleSearch'| translate}}:</h4></div>
+        <div class="col-4">
+            <label>{{'locations.searchByPlanet'| translate}}</label>  
+            <input type="text" [(ngModel)]="buscarLocalizaciones.name" class="form-control" formControlName="nombrePlaneta">
+            <div class="input-group-append" *ngIf="f['nombrePlaneta'].errors">
+                    <p *ngIf="f['nombrePlaneta'].errors['minlength']" class="error-validate red">*{{'locations.validate'| translate}}</p>
+            </div>
         </div>
         <div class="col-4">
-            <select type="text" [(ngModel)]="buscarLocalizaciones.type" class="form-control form-control-lg" formControlName="tipo">
+            <label>{{'locations.searchByType'| translate}}</label> 
+            <select type="text" [(ngModel)]="buscarLocalizaciones.type" class="form-control" formControlName="tipo">
                 <option *ngFor="let localizacion of localizaciones;" [value]="localizacion">{{localizacion}}</option>
             </select>
-            <!-- <div class="input-group-append" *ngIf="f['comentarios'].errors">
-                <p *ngIf="f['tipo'].errors['required']" class="error-validate red"> *Obligatorio</p>
-                <p *ngIf="f['comentarios'].errors['minlength']" class="error-validate red"> *Debe contener mínimo 10 caracteres</p>
-            </div> -->
         </div>
-        <div class="col-2">
-            <!-- <button type="button" class="btn btn-primary">Buscar</button> -->
-            <button  type="button" class="btn btn-primary" (click)="fitrarLocalizacion();">Buscar</button>
-            <button type="button" class="btn btn-primary" (click)="limpiar();">Limpiar</button>
+        <div class="col-1 mt-4">            
+            <button  type="button" class="btn btn-primary" (click)="fitrarLocalizacion();">{{'locations.search'| translate}}</button>            
+        </div>
+        <div class="col-1 mt-4">
+            <button type="button" class="btn btn-primary" (click)="limpiar();">{{'locations.clear'| translate}}</button>
         </div>
     </div> 
 </form>
 
 
-<div class="col-8">
+<div class="col-8 m-auto p-5" style="background-color: rgb(221, 237, 252);">
     <table class="table table-striped">
-        <thead>
-                <th>ID</th> <th>Planeta</th> <th>Tipo</th> <th>Dimensión</th> 
+        <thead class="text-center">
+                <th>ID</th> 
+                <th>{{'locations.planet'| translate}}</th> 
+                <th>{{'locations.type'| translate}}</th> 
+                <th>{{'locations.dimension'| translate}}</th> 
         </thead>
-        <tbody>
-            <tr *ngFor="let personaje of busqueda"> 
+        <tbody class="text-center">
+            <tr *ngFor="let personaje of busqueda | paginate: { itemsPerPage: 5, currentPage: pageLocalizaciones}"> 
                 <td>{{personaje.id}}</td> <td>{{personaje.name}} </td> <td>{{personaje.type}}</td>
-                <td>{{personaje.dimension}}</td> 
-                
+                <td>{{personaje.dimension}}</td>                 
             </tr>
         </tbody>
     </table>
+    <pagination-controls  class="text-center"
+        (pageChange)="pageLocalizaciones = $event"
+        previousLabel="{{'pagination.previus'| translate}}"
+        nextLabel="{{'pagination.next'| translate}}">
+    </pagination-controls>
 </div>
+

@@ -1,0 +1,32 @@
+{
+    "header": {
+        "title": "Final Proyect",
+        "character": "Characters",
+        "location": "Locations"
+    },
+    "welcomes": {
+        "welcome": "Welcome",
+        "menssage": "to your Ricky and Morty site"
+    },
+    "characters": {
+        "name": "name",
+        "species": "species",
+        "gender": "gender",
+        "image": "image"        
+    },
+    "locations": {
+        "titleSearch": "Find your location",
+        "searchByPlanet": "Search by planet name",
+        "validate":"Must contain a minimum of 5 characters",
+        "searchByType": "Search by type of planet",
+        "search": "Search",
+        "clear": "Clear",
+        "planet": "Planet",
+        "type": "Type",
+        "dimension": "Dimension"
+    },
+    "pagination":{
+        "next": "next",
+        "previus": "previus"
+    }
+}

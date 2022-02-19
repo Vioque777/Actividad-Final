@@ -8,10 +8,13 @@ import { FooterComponent } from './footer/footer.component';
 import { PersonajesComponent } from './personajes/personajes.component';
 import { BusquedaPersonajesComponent } from './busqueda-personajes/busqueda-personajes.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PersonajesService } from './servicio/personajes.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const routes: Routes = [
   {path:'',component:PersonajesComponent},
@@ -35,7 +38,15 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [ HttpClient ]
+      }
+    })
     
   ],
   providers: [
@@ -44,3 +55,7 @@ const routes: Routes = [
   bootstrap: [PrincipalComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

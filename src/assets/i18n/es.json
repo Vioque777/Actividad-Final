@@ -1,0 +1,32 @@
+{
+    "header": {
+        "title": "Proyecto Final",
+        "character": "Personajes",
+        "location": "Localizaciones"
+    },
+    "welcomes": {
+        "welcome": "Bienvenido",
+        "menssage": "a tu sitio de Ricky y Morty"
+    },
+    "characters": {
+        "name": "nombre",
+        "species": "especies",
+        "gender": "género",
+        "image": "imagen"
+        
+    },
+    "locations": {
+        "titleSearch": "Busca tu Localización",
+        "searchByPlanet": "Busca por el nombre del planeta",
+        "searchByType": "Busca por el tipo de planeta",
+        "search": "Buscar",
+        "clear": "Limpiar",
+        "planet": "Planeta",
+        "type": "Tipo",
+        "dimension": "Dimensión"
+    },
+    "pagination":{
+        "next": "siguente",
+        "previus": "anterior"
+    }
+}
