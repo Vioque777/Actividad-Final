@@ -15,7 +15,5 @@ export class PersonajesService {
   busquedas():Observable<any> {
     return this.httpClient.get("https://rickandmortyapi.com/api/location");
   }
-  bienbenida():Observable<any> {
-    return this.httpClient.get("http://localhost:3000/usuario");
-  }
+  
 }
