@@ -8,7 +8,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
 
-  resaltar: boolean = false;
   constructor(private translate: TranslateService) { }
 
   ngOnInit(): void {

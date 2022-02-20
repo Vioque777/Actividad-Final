@@ -28,5 +28,8 @@
     "pagination":{
         "next": "siguente",
         "previus": "anterior"
+    },
+    "footer": {
+        "create": "Creado por"
     }
 }

@@ -18,10 +18,7 @@ export class BienvenidaComponent implements OnInit {
   }
   mostrarBienvenida(){
     this.bienService.bienvenida().subscribe({
-      next: (r) => {
-        this.datosBienvenida = r;
-        console.log(this.datosBienvenida)
-      },
+      next: (r) => this.datosBienvenida = r,
       error: (e) => console.log(JSON.stringify(e))
     });
   }

@@ -8,7 +8,7 @@ import { PersonajesService } from '../servicio/personajes.service';
 })
 export class PersonajesComponent implements OnInit {
 
-  personajes: any;
+  personajes: any[] = [];
   pagePersonajes: number = 1;
 
   constructor(private perSevice: PersonajesService) {
@@ -19,10 +19,7 @@ export class PersonajesComponent implements OnInit {
   }
   listarPersonaje(): void {
     this.perSevice.listarPersonajes().subscribe({
-      next: (r) => {
-        this.personajes = r.results;
-        console.log(this.personajes.results);
-      },
+      next: (r) => this.personajes = r.results,
       error: (e) => console.log(JSON.stringify(e))
     });
     
