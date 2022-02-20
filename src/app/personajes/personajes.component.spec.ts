@@ -29,7 +29,7 @@ describe('PersonajesComponent', () => {
        providers: [  
           //  PersonajesService
            {
-            provide: PersonajesService, //cuando se necesite UsuariosService use lo de abajo:
+            provide: PersonajesService,
             useValue: personajeService
           }     
        ],
@@ -59,5 +59,6 @@ describe('PersonajesComponent', () => {
 //     component.listarPersonaje();
 //     expect(component.personajes.length).toBe(0);
 //  });
+
 
 });

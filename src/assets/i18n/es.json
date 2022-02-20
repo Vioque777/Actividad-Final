@@ -9,6 +9,7 @@
         "menssage": "a tu sitio de Ricky y Morty"
     },
     "characters": {
+        "title": "Tus personajes favoritos",
         "name": "nombre",
         "species": "especies",
         "gender": "género",

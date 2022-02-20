@@ -43,4 +43,13 @@ describe('PersonajesService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(listPersonaje);
   });
+  it('busquedas return list and does a get method', () => {
+    service.busquedas().subscribe( (resp: any[]) =>{
+        expect(resp).toEqual(listPersonaje);
+    });
+
+    const req = httpMock.expectOne('https://rickandmortyapi.com/api/location');
+    expect(req.request.method).toBe('GET');
+    req.flush(listPersonaje);
+  });
 });
