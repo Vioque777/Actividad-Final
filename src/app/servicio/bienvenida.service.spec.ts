@@ -1,12 +1,20 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { BienvenidaService } from './bienvenida.service';
 
-xdescribe('BienvenidaService', () => {
+describe('BienvenidaService', () => {
   let service: BienvenidaService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ],
+      providers: [
+        BienvenidaService
+    ],
+    });
     service = TestBed.inject(BienvenidaService);
   });
 

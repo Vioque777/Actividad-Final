@@ -1,14 +1,26 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { BienvenidaComponent } from './bienvenida.component';
+import { BienvenidaService } from '../servicio/bienvenida.service';
 
-xdescribe('BienvenidaComponent', () => {
+describe('BienvenidaComponent', () => {
   let component: BienvenidaComponent;
   let fixture: ComponentFixture<BienvenidaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BienvenidaComponent ]
+      imports: [
+        RouterTestingModule, 
+        HttpClientTestingModule              
+    ],
+      declarations: [ 
+        BienvenidaComponent 
+      ],
+      providers: [
+        BienvenidaService
+      ]
     })
     .compileComponents();
   });
