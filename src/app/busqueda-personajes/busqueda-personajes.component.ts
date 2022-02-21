@@ -14,7 +14,7 @@ export class BusquedaPersonajesComponent implements OnInit {
     tipo: new FormControl('')
   });
 
-  busqueda: any[] = [];
+  busqueda: any;
   buscarLocalizaciones: any = {name: '', type: ''};
   localizaciones: any[] = [];
   pageLocalizaciones: number = 1;
@@ -67,7 +67,7 @@ export class BusquedaPersonajesComponent implements OnInit {
       tipo: new FormControl('')
 
     });
-    // this.buscar();
+    this.buscar();
   }
 
   buscar(): void {

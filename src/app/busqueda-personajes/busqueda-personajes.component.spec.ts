@@ -6,6 +6,7 @@ import { BusquedaPersonajesComponent } from './busqueda-personajes.component';
 import { PersonajesService } from '../servicio/personajes.service';
 import { of } from 'rxjs';
 import { AppModule } from '../app.module';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 const personajeService = {
   llenarLocalizacion: () => of([]),
@@ -35,7 +36,8 @@ describe('BusquedaPersonajesComponent', () => {
         //   provide: PersonajesService,
         //   useValue: personajeService
         // } 
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   });
@@ -59,7 +61,7 @@ describe('BusquedaPersonajesComponent', () => {
   });
   it('fitrarLocalizacion', () => {
     const service = fixture.debugElement.injector.get(PersonajesService);
-    const listPersonaje: any[]=[];
+    const listPersonaje: any ={"results":[]};
     const spy1 = spyOn(service, 'busquedas').and.returnValue(of(listPersonaje));
     component.fitrarLocalizacion();
     expect(spy1).toHaveBeenCalled();
@@ -67,10 +69,11 @@ describe('BusquedaPersonajesComponent', () => {
   });
   it('buscar', () => {
     const service = fixture.debugElement.injector.get(PersonajesService);
-    const listPersonaje: any[]=[];
+    const listPersonaje: any ={"results":[]};
     const spy1 = spyOn(service, 'busquedas').and.returnValue(of(listPersonaje));
     component.buscar();
     expect(spy1).toHaveBeenCalled();
     expect(component.busqueda.length).toBe(0);
   });
+
 });
