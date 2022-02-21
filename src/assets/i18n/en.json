@@ -19,7 +19,7 @@
         "titleSearch": "Find your location",
         "searchByPlanet": "Search by planet name",
         "validate":"Must contain a minimum of 5 characters",
-        "searchByType": "Search by type of planet",
+        "searchByType": "Select the type of planet",
         "search": "Search",
         "clear": "Clear",
         "planet": "Planet",

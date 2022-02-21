@@ -44,7 +44,6 @@ export class BusquedaPersonajesComponent implements OnInit {
             this.localizaciones.push(elemento);
           }
         })
-        console.log(this.localizaciones);
         
       },
       error: (e) => console.log(JSON.stringify(e))
@@ -56,7 +55,6 @@ export class BusquedaPersonajesComponent implements OnInit {
       next: (r) => {
         this.busqueda = r.results.filter( (loc: { name: any; type: any; }) => 
         loc.name === this.buscarLocalizaciones.name || loc.type === this.buscarLocalizaciones.type);
-        console.log(this.busqueda);
       },
       error: (e) => console.log(JSON.stringify(e))
     });

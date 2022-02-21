@@ -5,7 +5,7 @@
             <label>{{'locations.searchByPlanet'| translate}}</label>  
             <input type="text" [(ngModel)]="buscarLocalizaciones.name" class="form-control" formControlName="nombrePlaneta">
             <div class="input-group-append" *ngIf="f['nombrePlaneta'].errors">
-                    <p *ngIf="f['nombrePlaneta'].errors['minlength']" class="error-validate red">*{{'locations.validate'| translate}}</p>
+                    <p *ngIf="f['nombrePlaneta'].errors['minlength']" class="error-validate">*{{'locations.validate'| translate}}</p>
             </div>
         </div>
         <div class="col-4">

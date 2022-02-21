@@ -5,7 +5,7 @@
         "location": "Localizaciones"
     },
     "welcomes": {
-        "welcome": "Bienvenido",
+        "welcome": "Bienvenid@",
         "menssage": "a tu sitio de Ricky y Morty"
     },
     "characters": {
@@ -19,7 +19,8 @@
     "locations": {
         "titleSearch": "Busca tu Localización",
         "searchByPlanet": "Busca por el nombre del planeta",
-        "searchByType": "Busca por el tipo de planeta",
+        "validate":"Debe contener mínimo 5 caracteres",
+        "searchByType": "Selecciona el tipo de planeta",
         "search": "Buscar",
         "clear": "Limpiar",
         "planet": "Planeta",
