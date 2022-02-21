@@ -47,18 +47,14 @@ describe('PersonajesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  xit('listarPersonaje', () => {
+  it('listarPersonaje', () => {
     const service = fixture.debugElement.injector.get(PersonajesService);
-    const listPersonaje: any[]=[];
+    const listPersonaje: any ={"results":[]};
     const spy1 = spyOn(service, 'listarPersonajes').and.returnValue(of(listPersonaje));
     component.listarPersonaje();
     expect(spy1).toHaveBeenCalled();
     expect(component.personajes.length).toBe(0);
   });
-//   xit('listarPersonaje_v2', () => {
-//     component.listarPersonaje();
-//     expect(component.personajes.length).toBe(0);
-//  });
 
 
 });
